@@ -378,6 +378,80 @@ export default function Admin() {
               </form>
             </section>
 
+            {/* ─── Herramientas ─── */}
+            <section className={styles.card}>
+              <h2 className={styles.cardTitle}>Herramientas</h2>
+              <p className={styles.stageNote} style={{ marginBottom: '1rem' }}>
+                Usa esto para resetear la experiencia y hacer pruebas.
+              </p>
+
+              <div className={styles.toolButtons}>
+                {/* Reset localStorage — abre una nueva pestaña con el reset */}
+                <a
+                  href="javascript:localStorage.removeItem('bday_state');window.location.href='/'"
+                  className={styles.resetBtn}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    // Abrir la experiencia en nueva pestaña con localStorage limpio
+                    const win = window.open('/', '_blank')
+                    if (win) {
+                      win.addEventListener('load', () => {
+                        win.localStorage.removeItem('bday_state')
+                        win.location.reload()
+                      })
+                    }
+                    // También limpiar en esta pestaña por si acaso
+                    localStorage.removeItem('bday_state')
+                    setSaveMsg('Reset listo — abre / en una pestaña nueva ✓')
+                    setTimeout(() => setSaveMsg(null), 3000)
+                  }}
+                >
+                  Resetear experiencia (localStorage)
+                </a>
+
+                {/* Borrar respuesta de Supabase */}
+                <button
+                  className={styles.dangerBtn}
+                  onClick={async () => {
+                    if (!confirm('¿Borrar la respuesta guardada en Supabase?')) return
+                    const { error } = await supabase
+                      .from('birthday_responses')
+                      .delete()
+                      .neq('id', '00000000-0000-0000-0000-000000000000')
+                    if (!error) {
+                      setResponse(null)
+                      setSaveMsg('Respuesta borrada ✓')
+                    } else {
+                      setSaveMsg(`Error: ${error.message}`)
+                    }
+                    setTimeout(() => setSaveMsg(null), 3000)
+                  }}
+                >
+                  Borrar respuesta de Supabase
+                </button>
+              </div>
+
+              <AnimatePresence>
+                {saveMsg && (
+                  <motion.span
+                    className={saveMsg.startsWith('Error') ? styles.errorMsg : styles.successMsg}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    style={{ marginTop: '0.5rem', display: 'block' }}
+                  >
+                    {saveMsg}
+                  </motion.span>
+                )}
+              </AnimatePresence>
+
+              <div className={styles.resetNote}>
+                <p>Para resetear en el teléfono de ella:</p>
+                <code>localStorage.removeItem('bday_state')</code>
+                <p>Ejecuta esto en la consola del navegador.</p>
+              </div>
+            </section>
+
             {/* ─── Nota de futuras etapas ─── */}
             <section className={styles.card}>
               <h2 className={styles.cardTitle}>Futuras revelaciones</h2>
