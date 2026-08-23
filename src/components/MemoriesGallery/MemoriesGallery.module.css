@@ -57,8 +57,9 @@
 .fullscreenImg {
   width: 100%;
   height: clamp(300px, 60vw, 640px);
-  object-fit: cover;
+  object-fit: contain;
   display: block;
+  background: #0d0d0d;
   background: var(--color-surface-2);
 }
 
@@ -98,12 +99,12 @@
 .layout_large .standardImg {
   width: 100%;
   max-width: 480px;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: var(--radius-sm);
   background: var(--color-surface-2);
   margin: 0 auto;
   display: block;
+  max-height: 520px;
 }
 
 /* ─── LAYOUT: small ─── */
@@ -113,12 +114,12 @@
 
 .layout_small .standardImg {
   width: clamp(180px, 55%, 280px);
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: var(--radius-sm);
   background: var(--color-surface-2);
   margin: 0 auto;
   display: block;
+  max-height: 400px;
 }
 
 /* ─── LAYOUT: left ─── */
@@ -136,10 +137,10 @@
 
 .layout_left .standardImg {
   width: clamp(200px, 65%, 360px);
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: var(--radius-sm);
   background: var(--color-surface-2);
+  max-height: 480px;
 }
 
 /* ─── LAYOUT: right ─── */
@@ -157,10 +158,10 @@
 
 .layout_right .standardImg {
   width: clamp(200px, 65%, 360px);
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: var(--radius-sm);
   background: var(--color-surface-2);
+  max-height: 480px;
 }
 
 /* ─── LAYOUT: centered ─── */
@@ -178,10 +179,10 @@
 
 .layout_centered .standardImg {
   width: clamp(220px, 70%, 400px);
-  aspect-ratio: 1;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: var(--radius-lg);
   background: var(--color-surface-2);
+  max-height: 480px;
 }
 
 /* ─── LAYOUT: polaroid ─── */
@@ -201,10 +202,10 @@
 
 .polaroidImg {
   width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   background: var(--color-surface-2);
+  max-height: 280px;
 }
 
 .polaroidBottom {
