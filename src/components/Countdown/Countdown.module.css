@@ -11,6 +11,64 @@
   overflow: hidden;
 }
 
+/* ─── Slideshow de fondo ─── */
+.slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.slideImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.slideOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 8, 8, 0.72);
+  /* Viñeta extra en bordes para enfocar el centro */
+  box-shadow: inset 0 0 120px rgba(0,0,0,0.5);
+}
+
+/* ─── Contenido encima del slideshow ─── */
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+}
+
+/* ─── Dots de navegación ─── */
+.dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition-base), transform var(--transition-base);
+  padding: 0;
+}
+
+.dotActive {
+  background: var(--color-accent);
+  transform: scale(1.4);
+}
+
 /* ─── Header ─── */
 .header {
   display: flex;
@@ -155,19 +213,6 @@
   text-align: center;
   font-style: italic;
   line-height: 1.5;
-}
-
-/* ─── Fondo decorativo ─── */
-.bgDeco {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(201, 169, 110, 0.04) 0%, transparent 70%);
-  pointer-events: none;
-  border-radius: 50%;
 }
 
 /* ─── Mobile ─── */
