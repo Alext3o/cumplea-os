@@ -1,0 +1,290 @@
+.wrapper {
+  background: var(--color-bg);
+  padding-bottom: 6rem;
+}
+
+/* ─── Intro de la galería ─── */
+.galleryIntro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  padding: 5rem 2rem 4rem;
+}
+
+.introLine {
+  display: block;
+  flex: 1;
+  max-width: 80px;
+  height: 1px;
+  background: var(--color-accent-dim);
+}
+
+.introText {
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* ─── Galería ─── */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 0 0 2rem;
+}
+
+/* ─── Item base ─── */
+.memoryItem {
+  will-change: transform, opacity;
+}
+
+/* ─── LAYOUT: fullscreen ─── */
+.layout_fullscreen {
+  width: 100%;
+  position: relative;
+}
+
+.fullscreenFrame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.fullscreenImg {
+  width: 100%;
+  height: clamp(300px, 60vw, 640px);
+  object-fit: cover;
+  display: block;
+  background: var(--color-surface-2);
+}
+
+.fullscreenCaption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+}
+
+.captionText {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 3.5vw, 1.5rem);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--color-text);
+  text-align: center;
+  letter-spacing: 0.02em;
+  max-width: 500px;
+  line-height: 1.4;
+}
+
+/* ─── LAYOUT: large ─── */
+.layout_large {
+  padding: 0 1rem;
+}
+
+.layout_large .standardFrame {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.layout_large .standardImg {
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-2);
+  margin: 0 auto;
+  display: block;
+}
+
+/* ─── LAYOUT: small ─── */
+.layout_small {
+  padding: 0 2rem;
+}
+
+.layout_small .standardImg {
+  width: clamp(180px, 55%, 280px);
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-2);
+  margin: 0 auto;
+  display: block;
+}
+
+/* ─── LAYOUT: left ─── */
+.layout_left {
+  padding: 0 1rem 0 0;
+}
+
+.layout_left .standardFrame {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+  padding-left: 1.5rem;
+}
+
+.layout_left .standardImg {
+  width: clamp(200px, 65%, 360px);
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-2);
+}
+
+/* ─── LAYOUT: right ─── */
+.layout_right {
+  padding: 0 0 0 1rem;
+}
+
+.layout_right .standardFrame {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-end;
+  padding-right: 1.5rem;
+}
+
+.layout_right .standardImg {
+  width: clamp(200px, 65%, 360px);
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-2);
+}
+
+/* ─── LAYOUT: centered ─── */
+.layout_centered {
+  padding: 1rem 2rem;
+}
+
+.layout_centered .standardFrame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.layout_centered .standardImg {
+  width: clamp(220px, 70%, 400px);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-2);
+}
+
+/* ─── LAYOUT: polaroid ─── */
+.layout_polaroid {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 2rem;
+}
+
+.polaroidFrame {
+  background: var(--color-surface);
+  padding: 0.6rem 0.6rem 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  max-width: 260px;
+  width: 65vw;
+}
+
+.polaroidImg {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+  background: var(--color-surface-2);
+}
+
+.polaroidBottom {
+  padding: 0.75rem 0.5rem 0;
+  min-height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.polaroidCaption {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ─── Captions estándar ─── */
+.standardCaption {
+  font-family: var(--font-serif);
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  max-width: 300px;
+  padding: 0 0.5rem;
+}
+
+.layout_left .standardCaption {
+  padding-left: 0;
+}
+
+.layout_right .standardCaption {
+  text-align: right;
+  padding-right: 0;
+}
+
+/* ─── Sección de cierre ─── */
+.endSection {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 2rem 2rem;
+}
+
+.continueBtn {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 0.9rem 2.2rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--color-accent-soft);
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition:
+    background var(--transition-base),
+    border-color var(--transition-base);
+  min-height: 48px;
+}
+
+.continueBtn:hover {
+  background: var(--color-glow);
+  border-color: var(--color-accent);
+}
+
+/* ─── Desktop ─── */
+@media (min-width: 640px) {
+  .gallery {
+    gap: 5.5rem;
+  }
+
+  .layout_large .standardImg {
+    max-width: 560px;
+  }
+
+  .polaroidFrame {
+    max-width: 320px;
+  }
+}

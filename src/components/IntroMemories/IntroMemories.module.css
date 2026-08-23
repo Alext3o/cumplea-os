@@ -1,0 +1,136 @@
+.wrapper {
+  min-height: 100dvh;
+  background: var(--color-bg);
+  padding: 4rem 1.5rem 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* ─── Header ─── */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0.6;
+}
+
+.headerLine {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--color-accent-dim);
+}
+
+.headerText {
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* ─── Grid de fotos ─── */
+.photoGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  width: 100%;
+  max-width: 560px;
+}
+
+/* ─── Item de foto ─── */
+.photoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.photoLeft {
+  align-items: flex-start;
+  padding-left: 0.5rem;
+}
+
+.photoRight {
+  align-items: flex-end;
+  padding-right: 0.5rem;
+}
+
+/* ─── Marco foto estilo polaroid/orgánico ─── */
+.photoFrame {
+  background: var(--color-surface);
+  padding: 0.6rem 0.6rem 1.6rem;
+  border-radius: 2px;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.5),
+    0 1px 3px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  max-width: 280px;
+  width: 80vw;
+}
+
+.photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  border-radius: 1px;
+  /* Placeholder cuando no hay imagen */
+  background: linear-gradient(135deg, var(--color-surface-2) 0%, #1a1815 100%);
+  min-height: 160px;
+}
+
+/* ─── Caption ─── */
+.caption {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+  max-width: 260px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ─── CTA ─── */
+.cta {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.continueBtn {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 0.85rem 2rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--color-accent-soft);
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition:
+    background var(--transition-base),
+    border-color var(--transition-base),
+    color var(--transition-base);
+}
+
+.continueBtn:hover {
+  background: var(--color-glow);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* ─── Desktop ─── */
+@media (min-width: 640px) {
+  .photoGrid {
+    gap: 5rem;
+  }
+
+  .photoFrame {
+    max-width: 340px;
+    width: 50vw;
+  }
+}

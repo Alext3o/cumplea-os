@@ -1,0 +1,183 @@
+.wrapper {
+  min-height: 100dvh;
+  background: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem 8rem;
+  gap: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ─── Header ─── */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: center;
+}
+
+.headerLabel {
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.headerDate {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 4vw, 1.5rem);
+  font-weight: 400;
+  color: var(--color-accent-soft);
+}
+
+/* ─── Contador ─── */
+.counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.faltan {
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.units {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.sep {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 8vw, 3.5rem);
+  color: var(--color-accent-dim);
+  line-height: 1;
+  margin-top: 0.15rem;
+  align-self: flex-start;
+}
+
+.unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  min-width: clamp(52px, 16vw, 80px);
+  position: relative;
+  overflow: hidden;
+}
+
+.unitValue {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 9vw, 4.5rem);
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  display: block;
+}
+
+.unitLabel {
+  font-size: 0.65rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.forLabel {
+  font-family: var(--font-serif);
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+
+/* ─── Bloque de espera ─── */
+.waitingBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: center;
+  max-width: 340px;
+}
+
+.waitLine {
+  font-family: var(--font-serif);
+  font-size: clamp(0.95rem, 3vw, 1.15rem);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--color-text-muted);
+}
+
+.divider {
+  width: 40px;
+  height: 1px;
+  background: var(--color-accent-dim);
+  margin: 0.5rem 0;
+}
+
+.waitInstruction {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 3.5vw, 1.3rem);
+  font-weight: 400;
+  color: var(--color-accent-soft);
+  letter-spacing: 0.02em;
+}
+
+.waitSmall {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--color-text-faint);
+  font-style: italic;
+}
+
+.extraMsg {
+  margin-top: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--color-accent-soft);
+  text-align: center;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ─── Fondo decorativo ─── */
+.bgDeco {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(201, 169, 110, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+/* ─── Mobile ─── */
+@media (max-width: 380px) {
+  .units {
+    gap: 0.25rem;
+  }
+
+  .sep {
+    font-size: 1.8rem;
+    margin-top: 0.5rem;
+  }
+}
