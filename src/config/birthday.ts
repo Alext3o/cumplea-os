@@ -16,7 +16,7 @@ export const birthdayConfig = {
   // ─── MÚSICA ────────────────────────────────────────────────
   // Coloca el archivo en: /public/audio/a-donde-vamos.mp3
   music: {
-    src: "/audio/a-donde-vamos.mp3",
+    src: "/audio/Morat - A Dónde Vamos (Video Oficial).mp3",
     title: "A Dónde Vamos",
     artist: "Morat",
   },
