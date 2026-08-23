@@ -16,8 +16,8 @@ interface CountdownProps {
   onReveal?: () => void
 }
 
-// Fotos para el slideshow del fondo — usa las de memories
-const SLIDESHOW_PHOTOS = birthdayConfig.memories.map(m => m.src)
+// Fotos para el slideshow del fondo — usa las configuradas en birthday.ts
+const SLIDESHOW_PHOTOS = birthdayConfig.countdownPhotos as unknown as string[]
 
 export default function Countdown({
   startDate,

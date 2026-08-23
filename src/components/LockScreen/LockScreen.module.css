@@ -17,6 +17,38 @@
   overflow: hidden;
 }
 
+/* ─── Fotos de fondo ─── */
+.bgPhoto {
+  position: absolute;
+  width: 42vw;
+  max-width: 200px;
+  height: 55vw;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: 4px;
+  opacity: 0;
+  filter: brightness(0.5);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+}
+
+.bgPhotoLeft {
+  top: 10%;
+  left: -3%;
+  transform: rotate(-6deg);
+}
+
+.bgPhotoRight {
+  bottom: 12%;
+  right: -3%;
+  transform: rotate(5deg);
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(10,10,10,0.65) 40%, rgba(10,10,10,0.85) 100%);
+}
+
 .particle {
   position: absolute;
   bottom: -10px;

@@ -13,6 +13,7 @@ interface LockScreenProps {
 
 const CORRECT_DATE = new Date(birthdayConfig.storyStartDate + 'T12:00:00')
 const WRONG_MESSAGES = birthdayConfig.copy.lockScreen.wrongDate
+const LOCK_PHOTOS = birthdayConfig.lockPhotos as unknown as string[]
 
 export default function LockScreen({ onUnlock }: LockScreenProps) {
   const [selected, setSelected] = useState<Date | undefined>(undefined)
@@ -48,10 +49,25 @@ export default function LockScreen({ onUnlock }: LockScreenProps) {
       exit={{ opacity: 0, scale: 0.97 }}
       transition={{ duration: 0.8, ease: 'easeInOut' }}
     >
-      {/* Fondo con partículas sutiles */}
+      {/* Fondo con fotos + partículas */}
       <div className={styles.bg} aria-hidden="true">
+        {/* Fotos de fondo */}
+        {LOCK_PHOTOS.map((src, i) => (
+          <motion.img
+            key={i}
+            src={src}
+            alt=""
+            className={`${styles.bgPhoto} ${i === 0 ? styles.bgPhotoLeft : styles.bgPhotoRight}`}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5 + i * 0.3, duration: 1.2 }}
+          />
+        ))}
+        {/* Overlay oscuro sobre las fotos */}
+        <div className={styles.bgOverlay} />
+        {/* Partículas */}
         {Array.from({ length: 18 }).map((_, i) => (
-          <div key={i} className={styles.particle} style={{
+          <div key={`p${i}`} className={styles.particle} style={{
             left: `${Math.random() * 100}%`,
             animationDelay: `${Math.random() * 8}s`,
             animationDuration: `${6 + Math.random() * 6}s`,
