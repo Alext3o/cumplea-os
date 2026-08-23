@@ -16,8 +16,8 @@ interface CountdownProps {
   onReveal?: () => void
 }
 
-// Fotos para el slideshow del fondo — usa las configuradas en birthday.ts
-const SLIDESHOW_PHOTOS = birthdayConfig.countdownPhotos as unknown as string[]
+// Fotos para el slideshow del fondo — todas las fotos de memories
+const SLIDESHOW_PHOTOS = birthdayConfig.memories.map(m => m.src)
 
 export default function Countdown({
   startDate,
@@ -32,11 +32,11 @@ export default function Countdown({
 
   const formatDate = (d: Date) => format(d, "d 'de' MMMM, yyyy", { locale: es })
 
-  // Slideshow — cambia foto cada 5 segundos
+  // Slideshow — cambia foto cada 4 segundos
   useEffect(() => {
     const interval = setInterval(() => {
       setSlideIndex(i => (i + 1) % SLIDESHOW_PHOTOS.length)
-    }, 5000)
+    }, 4000)
     return () => clearInterval(interval)
   }, [])
 
@@ -109,17 +109,7 @@ export default function Countdown({
           <p className={styles.forLabel}>para nuestra aventura.</p>
         </motion.div>
 
-        {/* Indicadores del slideshow */}
-        <div className={styles.dots}>
-          {SLIDESHOW_PHOTOS.map((_, i) => (
-            <button
-              key={i}
-              className={`${styles.dot} ${i === slideIndex ? styles.dotActive : ''}`}
-              onClick={() => setSlideIndex(i)}
-              aria-label={`Foto ${i + 1}`}
-            />
-          ))}
-        </div>
+        {/* Sin dots — demasiadas fotos para mostrarlos */}
 
         {/* Mensaje de espera */}
         <AnimatePresence>
