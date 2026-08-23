@@ -24,14 +24,18 @@ export default function Confirmation({ startDate, endDate, duration, onComplete 
       const startStr = format(startDate, 'yyyy-MM-dd')
       const endStr   = format(endDate,   'yyyy-MM-dd')
 
+      console.log('[Supabase] Intentando guardar:', { startStr, endStr, duration })
+      console.log('[Supabase] URL:', import.meta.env.VITE_SUPABASE_URL)
+      console.log('[Supabase] Key (primeros 20 chars):', import.meta.env.VITE_SUPABASE_ANON_KEY?.slice(0, 20))
+
       const { error } = await saveBirthdayResponse(startStr, endStr, duration)
 
       if (error) {
-        // Si falla Supabase (ej: env vars no configuradas en dev), continuar igual
-        console.warn('[Confirmation] No se pudo guardar en Supabase:', error)
+        console.error('[Supabase] ERROR al guardar:', error)
+      } else {
+        console.log('[Supabase] ✓ Guardado correctamente')
       }
 
-      // Pequeña pausa dramática antes de mostrar confirmación
       setTimeout(() => setPhase('confirmed'), 800)
     }
 
